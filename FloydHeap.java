@@ -2,7 +2,7 @@ public class FloydHeap {
     private static int DEFAULT_CAPACITY = 101;
     private int numberOfEntries;
     int[] heap;
-    int totalSwaps;
+    int totalSwaps = 0;
 
 
     public FloydHeap(){
@@ -37,6 +37,13 @@ public class FloydHeap {
      public int[] returnArray(){
         return heap;
  }
+    public int getCapacity(){
+        return heap.length;
+    }
+
+    public void setSwaps(int n){
+        totalSwaps = n;
+    }
 
 
 
@@ -76,7 +83,7 @@ public class FloydHeap {
     public void reheap(int [] array){
         heap = array;
         numberOfEntries = heap.length-1;
-        totalSwaps = 0;
+       
 
         for (int i = numberOfEntries/2; i>=1; i--){
             organizeHeap(i);
@@ -157,14 +164,13 @@ public class FloydHeap {
 
 
     }
-
-
-
-
-
-
-
-
+   
+    public void clear(){
+        int[] tempHeap = new int[heap.length];
+        heap = tempHeap;
+        numberOfEntries=0;
+    
+     }
 
 
 

@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class SequentialHeap {
     private static int DEFAULT_CAPACITY = 101;
@@ -25,6 +24,10 @@ public class SequentialHeap {
 
     public int getSwaps(){
         return totalSwaps;
+    }
+
+    public void setSwaps(int n){
+        totalSwaps = n;
     }
 
    
@@ -133,13 +136,11 @@ public class SequentialHeap {
     return heap;
  }
 
- public int swap(int i, int numberTemp){
-     int temp = heap[i];
-        heap[i] = numberTemp;
-        numberTemp = temp;
-         i = 1;
-        totalSwaps++;
-        return numberTemp;
+ public void clear(){
+    int[] tempHeap = new int[heap.length];
+    heap = tempHeap;
+    numberOfEntries=0;
+
  }
 
  
